@@ -1,0 +1,49 @@
+
+Cîrstian Daniel 311 CB
+
+Pentru taskurile 1 - 6 am avut o abordare destul de clasica as zice eu, am lucrat pe exemple de o matrice bidimensionala ca sa-mi fie mai usor, 
+unde am notat cateva exemple. Aici sunt 2 exemple pt taskurile 1 si 2, la fel am procedat si pentru restul pana la 6:
+Task 1:
+
+0 1 2		0 1 2
+
+1 2 3		3 2 1	A[0][0] <-> A[0][2];	A[i][j] <-> A[i][M - j - 1];	
+4 5 6		6 5 4   A[1][0] <-> A[1][2];	
+7 8 9		9 8 7   A[2][0] <-> A[2][2];
+
+Task2
+
+    0 1 2		0 1 2	
+
+0   1 2 3		3 6 9 
+1   4 5 6		2 5 8 
+2   7 8 9		1 4 7 
+
+Pentru i = 0:
+A[0][0] <-> A[2][0]  A[i][j] <-> A[M - j - 1][i]
+A[0][1] <-> A[1][0]
+A[0][2] <-> A[0][0]
+
+Pentru i = 1:
+A[1][0] <-> A[2][1]
+A[1][1] <-> A[1][1]
+A[1][2] <-> A[0][1]
+
+Pentru i = 0:
+C[0][0] = matr[0][2]
+C[0][1] = matr[1][2]
+C[0][2] = matr[2][2]
+
+Pentru i = 1:
+C[1][0] = matr[0][1]
+C[1][1] = matr[1][1]
+C[1][2] = matr[2][1]
+
+Pentru taskul 7 am luat fiecare caz specificat printr-o serie de if else if, inlanuite intr-un while care se opreste cand stringul citit este e (comanda de exit);
+Mai departe am facut 2 strcuturi, imageType si filterType care sa inglobeze variabile de tip imagine si filtru, si de asemenea dimensiunea lor. Am alocat dinamic o zona de memorie de 10 elemente pentru fiecare din acest tip de structura si am rezolvat taskul
+
+Pentru taskul 8 am rulat comenzile:
+gcc -o interactive -std=c11 -Wall -ggdb3 interactive.c bmp.c imageprocessing.c
+valgrind —tool=memcheck —leak-check=full —error-exitcode=1 —track-origins=yes ./interactive
+
+Dupa am luat fiecare test in parte si am vazut unde leakuieste memorie, cam atat
